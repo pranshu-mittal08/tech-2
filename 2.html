@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crosslinks | The Media Body of NSUT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* RESET + BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0c0c0c;
+      color: #fff;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 100;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      color: #f4b400;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a:hover {
+      color: #f4b400;
+    }
+
+    /* Mobile Menu Toggle (CSS only) */
+    #menu-toggle {
+      display: none;
+    }
+    .menu-btn {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #fff;
+    }
+    @media(max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        text-align: right;
+        padding: 1rem;
+        display: none;
+      }
+      #menu-toggle:checked + .menu-btn + .nav-links {
+        display: flex;
+      }
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                  url('https://images.unsplash.com/photo-1503424886307-b090341d25d1?auto=format&fit=crop&w=1600&q=80') center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+    .btn {
+      background: #f4b400;
+      color: #000;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #fff;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about h2,
+    .articles h2,
+    .contact h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: #f4b400;
+    }
+
+    .about p {
+      text-align: center;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    /* ARTICLES */
+    .articles {
+      background: #121212;
+    }
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .article {
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .article:hover {
+      transform: translateY(-5px);
+    }
+    .article img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .article h3 {
+      padding: 1rem;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+    .article p {
+      padding: 0 1rem 1rem;
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+    }
+    .socials {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .socials a {
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .socials a:hover {
+      color: #f4b400;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0a0a0a;
+      text-align: center;
+      padding: 1.5rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* SMOOTH SCROLLING */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">CROSSLINKS</div>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-btn">☰</label>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#articles">Articles</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>The Media Body of NSUT</h1>
+    <p>Capturing every story worth telling — from campus life to creative expression.</p>
+    <a href="#articles" class="btn">Read Articles</a>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+    <h2>About Crosslinks</h2>
+    <p>Crosslinks is the official media body of Netaji Subhas University of Technology, dedicated to bringing the most compelling stories, creative works, and voices of the NSUT community to light.</p>
+  </section>
+
+  <!-- ARTICLES SECTION -->
+  <section class="articles" id="articles">
+    <h2>Recent Publications</h2>
+    <div class="article-grid">
+      <div class="article">
+        <img src="https://images.unsplash.com/photo-1522204507491-d3c7a96f9be8?auto=format&fit=crop&w=800&q=80" alt="">
+        <h3>Inside NSUT’s Cultural Fest</h3>
+        <p>A glimpse into the colors, energy, and spirit of our annual cultural celebration.</p>
+      </div>
+      <div class="article">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="">
+        <h3>The Rise of Student Journalism</h3>
+        <p>How student voices are shaping perspectives and challenging narratives.</p>
+      </div>
+      <div class="article">
+        <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=800&q=80" alt="">
+        <h3>Tech at NSUT</h3>
+        <p>Exploring the innovations emerging from one of Delhi’s premier tech universities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Connect with Us</h2>
+    <p>Email: <a href="mailto:crosslinks@nsut.ac.in">crosslinks@nsut.ac.in</a></p>
+    <div class="socials">
+      <a href="#">📸</a>
+      <a href="#">🐦</a>
+      <a href="#">💼</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Crosslinks, NSUT. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
